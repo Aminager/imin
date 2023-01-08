@@ -1,5 +1,5 @@
 import React from 'react';
-import {View, Image, Text, StyleSheet, TouchableHighlight} from 'react-native';
+import {View, Image, Text, StyleSheet, TouchableOpacity} from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome5';
 
 const Bet = (props) => {
@@ -8,15 +8,15 @@ const Bet = (props) => {
     <View style={styles.item}>
 
         <View style={styles.itemLeft}>
-            <TouchableHighlight 
-                style={styles.imageHighlight}
+            <TouchableOpacity 
+                style={styles.imageOpacity}
                 onPress={() => alert("pic pressed")}>
                 <Image 
                     style={styles.betImage}
                     source={require('../assets/amin.png')}>
                 </Image>
                 
-            </TouchableHighlight>
+            </TouchableOpacity>
 
             <Text style={styles.itemText}>{props.text}</Text>
             
@@ -27,12 +27,12 @@ const Bet = (props) => {
                 <Text style={styles.amountText}>{props.amount} kr</Text>
             </View>
             <View style={styles.acceptBet}>
-                <TouchableHighlight
-                    style={styles.acceptHighlight}
+                <TouchableOpacity
+                    style={styles.acceptOpacity}
                     onPress={() => alert("bet accepted")}>
                     <Icon name="check-circle" style={styles.acceptCheck}></Icon>
                     
-                </TouchableHighlight>
+                </TouchableOpacity>
             </View>
         </View>
         
@@ -62,7 +62,7 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         flexWrap: 'wrap'
     },
-    imageHighlight: {
+    imageOpacity : {
         borderRadius: 50,
         height: 48,
         width: 48,
@@ -76,7 +76,7 @@ const styles = StyleSheet.create({
         marginLeft: 8,
         maxWidth: '60%'
     },
-    acceptHighlight: {
+    acceptOpacity: {
     
     },
     acceptCheck: {

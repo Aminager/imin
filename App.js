@@ -1,37 +1,35 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
-import Bet from './components/Bet'
+import { NavigationContainer} from '@react-navigation/native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import HomeScreen from './components/HomeScreen';
+import AccountScreen from './components/AccountScreen';
+import NewBetScreen from './components/NewBetScreen';
 
-export default function App() {
+const Stack = createNativeStackNavigator();
+
+const App = () => {
   return (
-    <View style={styles.container}>
-
-      <View style={styles.sectionWrapper}>
-        <Text style={styles.sectionTitle}>Open bets</Text>
-
-        <View style={styles.bets}>
-          <Bet text={"A o V gör dumplings till middag o V gör dumplings till middag"} amount={20}/>
-          <Bet text={"Amin går till gymmet idag"} amount={50}/>
-        </View>
-
-      </View>
+    <NavigationContainer>
+      <Stack.Navigator>
+        <Stack.Screen 
+          name="Home"
+          component={HomeScreen}
+          options={{headerShown: false}}
+        />
+        <Stack.Screen 
+          name="Account"
+          component={AccountScreen}
+          options={{headerShown: false}}
+        />
+        <Stack.Screen 
+          name="NewBet"
+          component={NewBetScreen}
+          options={{headerShown: false}}
+        />
+      </Stack.Navigator>
       
-      <StatusBar style="auto" />
-    </View>
+    </NavigationContainer>
+    
   );
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff'
-  },
-  sectionWrapper: {
-    paddingTop: 80,
-    paddingHorizontal: 20
-  },
-  sectionTitle: {
-    fontSize: 24,
-    fontWeight: 'bold'
-  }
-});
+export default App;
