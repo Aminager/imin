@@ -1,10 +1,9 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import {View, Text, TouchableOpacity, StyleSheet} from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome5';
 
 
 const BottomNavBar = ({navigation}) => {
-
     return (
     <View style={styles.navbar}>
         <TouchableOpacity style={styles.barItem} 
@@ -28,12 +27,10 @@ const styles = StyleSheet.create({
     navbar : {
         position: 'absolute',
         width: '90%',
-        bottom: 60,
+        bottom: '1%',
         flexDirection: 'row',
         justifyContent: 'space-between',
         alignItems: 'center',
-        borderColor: '#F7E3BE',
-        borderWidth: 4,
         borderRadius: 40,
         paddingHorizontal: '10%'
     },

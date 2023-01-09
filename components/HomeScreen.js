@@ -1,29 +1,35 @@
-import React from "react";
+import React, {useState} from "react";
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, View, SafeAreaView, ScrollView} from 'react-native';
 import Bet from './Bet';
 import BottomNavBar from './BottomNavBar';
 
+const bets = require("../testBets.json").bets;
 
 const HomeScreen = ({navigation}) => {
-    return (
-    <View style={styles.container}>
+  
+  
+  return (
+  <SafeAreaView style={styles.container}>
+      
+      <ScrollView style={styles.sectionWrapper}>
+          <Text style={styles.sectionTitle}>Open bets</Text>
 
-        <View style={styles.sectionWrapper}>
-            <Text style={styles.sectionTitle}>Open bets</Text>
+          <View style={styles.bets}>
+            {
+              bets.map((bet, index) => {
+                return <Bet key={index} text={bet.text} amount={bet.amount} />   
+              })
+            }
+          </View>
 
-            <View style={styles.bets}>
-            <Bet text={"A o V gör dumplings till middag o V gör dumplings till middag"} amount={20}/>
-            <Bet text={"Amin går till gymmet idag"} amount={50}/>
-            </View>
+      </ScrollView>
 
-        </View>
+      <BottomNavBar navigation={navigation}/>
 
-        <BottomNavBar navigation={navigation}/>
-
-        <StatusBar style="auto" />
-    </View>
-    )
+      <StatusBar style="auto" />
+  </SafeAreaView>
+  )
 }
 
 const styles = StyleSheet.create({
@@ -33,9 +39,9 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   sectionWrapper: {
-    paddingTop: 80,
-    paddingHorizontal: 20,
-    alignItems: 'center',
+    paddingTop: "20%",
+    paddingHorizontal: "6%",
+    maxHeight: "91%"
   },
   sectionTitle: {
     fontSize: 24,

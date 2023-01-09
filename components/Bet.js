@@ -43,10 +43,10 @@ const Bet = (props) => {
 const styles = StyleSheet.create({
     item: {
         backgroundColor: '#F7E3BE',
-        padding: 15,
+        padding: "4.5%",
         justifyContent: 'space-between',
-        marginTop: 10,
-        marginBottom: 10,
+        marginTop: "2%",
+        marginBottom: "2%",
         borderRadius: 20,
         flexDirection: 'row',
         alignItems: 'center',
@@ -54,18 +54,14 @@ const styles = StyleSheet.create({
     },
     itemLeft: {
         flexDirection: 'row',
-        alignItems: 'center',
-        flexWrap: 'wrap'
     },
     itemRight: {
         flexDirection: 'row',
-        alignItems: 'center',
-        flexWrap: 'wrap'
     },
     imageOpacity : {
         borderRadius: 50,
-        height: 48,
-        width: 48,
+        height: "10%",
+        width: "10%",
     },
     betImage: {
         height: 48,
@@ -73,7 +69,8 @@ const styles = StyleSheet.create({
         borderRadius: 50,
     },
     itemText: {
-        marginLeft: 8,
+        marginLeft: '13%',
+        fontWeight: 'bold',
         maxWidth: '60%'
     },
     acceptOpacity: {
