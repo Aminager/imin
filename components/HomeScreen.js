@@ -25,8 +25,6 @@ const HomeScreen = ({navigation}) => {
 
       </ScrollView>
 
-      <BottomNavBar navigation={navigation}/>
-
       <StatusBar style="auto" />
   </SafeAreaView>
   )
@@ -41,7 +39,6 @@ const styles = StyleSheet.create({
   sectionWrapper: {
     paddingTop: "20%",
     paddingHorizontal: "6%",
-    maxHeight: "91%"
   },
   sectionTitle: {
     fontSize: 24,

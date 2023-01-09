@@ -1,14 +1,22 @@
 import React from "react";
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, Image, SafeAreaView, View, TouchableOpacity } from 'react-native';
 import BottomNavBar from "./BottomNavBar";
 
-const AccountScreen = ({navigation}) => {
+const AccountScreen = ({navigation, props}) => {
     return(
-        <View style={styles.container}>
-            <Text>AccountPage</Text>
-            <BottomNavBar navigation={navigation} />
-        </View>
+        <SafeAreaView style={styles.container}>
+            <View style={styles.profileInfoWrapper}>
+              <TouchableOpacity style={styles.profileInfoWrapperOpacity}>
+                <Image 
+                  style={styles.profileInfoImage}
+                  source={require('../assets/amin.png')}>
+                </Image>
+              </TouchableOpacity>
+              <Text style={styles.profileInfoText}>{props.name}</Text>
+              
+            </View>
+        </SafeAreaView>
         
     )
 }
@@ -18,6 +26,19 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: '#fff',
     alignItems: 'center',
+  },
+  profileInfoWrapper: {
+    paddingTop: "10%",
+    alignItems: 'center',
+  },
+  profileInfoWrapperOpacity: {
+    borderRadius: 50,
+
+  },
+  profileInfoImage: {
+    borderRadius: 50,
+    height: 150,
+    width: 150,
   },
 });
 
