@@ -3,8 +3,9 @@ import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, Image, SafeAreaView, View, TouchableOpacity } from 'react-native';
 import BottomNavBar from "./BottomNavBar";
 
-const AccountScreen = ({navigation, props}) => {
+const AccountScreen = ({navigation}) => {
     return(
+      
         <SafeAreaView style={styles.container}>
             <View style={styles.profileInfoWrapper}>
               <TouchableOpacity style={styles.profileInfoWrapperOpacity}>
@@ -13,7 +14,7 @@ const AccountScreen = ({navigation, props}) => {
                   source={require('../assets/amin.png')}>
                 </Image>
               </TouchableOpacity>
-              <Text style={styles.profileInfoText}>{props.name}</Text>
+              <Text style={styles.profileInfoText}>test</Text>
               
             </View>
         </SafeAreaView>
