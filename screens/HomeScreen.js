@@ -1,8 +1,7 @@
 import React, {useState} from "react";
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View, SafeAreaView, ScrollView} from 'react-native';
-import Bet from './Bet';
-import BottomNavBar from './BottomNavBar';
+import Bet from '../components/Bet';
 
 const bets = require("../testBets.json").bets;
 

@@ -3,7 +3,7 @@ import { StatusBar } from 'expo-status-bar';
 import { Text, KeyboardAvoidingView, StyleSheet, TextInput, View, TouchableOpacity} from 'react-native';
 import { SafeAreaView } from "react-native-safe-area-context";
 import Icon from 'react-native-vector-icons/FontAwesome5';
-import BottomNavBar from "./BottomNavBar";
+import BottomNavBar from "../components/BottomNavBar";
 
 
 
