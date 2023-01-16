@@ -1,16 +1,18 @@
 import React  from "react";
 import { StyleSheet, Text, Image, SafeAreaView, View, TouchableOpacity, KeyboardAvoidingView } from 'react-native';
 import { auth } from "../firebase";
-import { onAuthStateChanged } from "@firebase/auth";
+import { onAuthStateChanged, signOut } from "@firebase/auth";
 
 
 const AccountScreen = ({navigation}) => {
 
-  onAuthStateChanged(auth, (user) => {
-    if (!user) {
-      
-    }
-  })
+  const handleSignOut = () => {
+    signOut(auth)
+    .then(() => {
+      navigation.replace("Login")
+    })
+    .catch(error => alert(error.message))
+  }
   
   return(
     
@@ -23,7 +25,15 @@ const AccountScreen = ({navigation}) => {
               </Image>
             </TouchableOpacity>
             <Text style={styles.profileInfoText}>test</Text>
-            
+          </View>
+          <View>
+            <TouchableOpacity
+              onPress={handleSignOut}
+              style={styles.signOutButton}>
+              <Text>
+                Sign out
+              </Text>
+            </TouchableOpacity>
           </View>
       </SafeAreaView>
       
@@ -49,6 +59,13 @@ const styles = StyleSheet.create({
     height: 150,
     width: 150,
   },
+  signOutButton: {
+    backgroundColor: "#F7E3BE",
+    padding: 15,
+    marginTop: 5,
+    borderRadius: 20,
+    alignItems: 'center',
+  }
 });
 
 export default AccountScreen;

@@ -31,7 +31,6 @@ const AppTabs = () => {
           />
           <Tab.Screen 
               name="NewBet"
-              
               component={NewBetScreen}
               options={{headerShown: false, 
               tabBarIcon: () => <Icon name="plus" style={styles.icons}></Icon>}}
