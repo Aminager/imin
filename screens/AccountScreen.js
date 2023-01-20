@@ -1,7 +1,7 @@
 import React  from "react";
 import { StyleSheet, Text, Image, SafeAreaView, View, TouchableOpacity, KeyboardAvoidingView } from 'react-native';
-import { auth } from "../firebase";
-import { onAuthStateChanged, signOut } from "@firebase/auth";
+import { auth, db } from "../firebase";
+import { signOut } from "firebase/auth";
 
 
 const AccountScreen = ({navigation}) => {
@@ -16,7 +16,7 @@ const AccountScreen = ({navigation}) => {
   
   return(
     
-      <SafeAreaView style={styles.container}>
+      <View style={styles.container}>
           <View style={styles.profileInfoWrapper}>
             <TouchableOpacity style={styles.profileInfoWrapperOpacity}>
               <Image 
@@ -35,7 +35,7 @@ const AccountScreen = ({navigation}) => {
               </Text>
             </TouchableOpacity>
           </View>
-      </SafeAreaView>
+      </View>
       
   )
 }

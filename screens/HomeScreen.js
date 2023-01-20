@@ -1,31 +1,37 @@
-import React, {useState} from "react";
+import React, {useEffect, useState} from "react";
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View, SafeAreaView, ScrollView} from 'react-native';
+import { StyleSheet, Text, View, ScrollView} from 'react-native';
 import Bet from '../components/Bet';
-
-const bets = require("../testBets.json").bets;
+//import {bets} from "../fetches/FetchBets";
 
 const HomeScreen = ({navigation}) => {
-  
-  
+  let bets = [{"amount": 40, "creator": "nina@gmail.com", "text": "testing2testing2testing2testing2testing2testing2testing2testing2testing2testing2testing2testing2testing2testing2testing2testing2"}, {"amount": 40, "creator": "nina@gmail.com", "text": "testing"}, {"amount": 40, "creator": "Amin", "text": "testing"}, {"amount": 50, "creator": "Amin Alian", "text": "Amin går till gymmet och lever life"}]
+
   return (
-  <SafeAreaView style={styles.container}>
+  <View style={styles.container}>
       
       <ScrollView style={styles.sectionWrapper}>
           <Text style={styles.sectionTitle}>Open bets</Text>
 
           <View style={styles.bets}>
             {
-              bets.map((bet, index) => {
-                return <Bet key={index} text={bet.text} amount={bet.amount} />   
-              })
+              //bets.forEach((bets2) => {
+                bets.map((bet, index) => {
+                  return <Bet 
+                            style={styles.bet} 
+                            key={index}
+                            text={bet.text}
+                            creator={bet.creator} 
+                            amount={bet.amount} />
+                })
+              //})
             }
           </View>
 
       </ScrollView>
 
       <StatusBar style="auto" />
-  </SafeAreaView>
+  </View>
   )
 }
 
@@ -33,15 +39,21 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#fff',
-    alignItems: 'center',
   },
   sectionWrapper: {
     paddingTop: "20%",
-    paddingHorizontal: "6%",
   },
   sectionTitle: {
     fontSize: 24,
-    fontWeight: 'bold'
+    fontWeight: 'bold',
+    paddingHorizontal: "6%",
+  }, 
+  bets: {
+    alignItems: 'stretch',
+    paddingHorizontal: "4%",
+    justifyContent: 'center'    
+  },
+  bet: {
   }
 });
 

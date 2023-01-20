@@ -1,8 +1,7 @@
 import React, {useEffect, useState} from "react";
-import { StyleSheet, Text, Image, SafeAreaView, View, TouchableOpacity, KeyboardAvoidingView } from 'react-native';
-import { TextInput } from "react-native-paper";
+import { StyleSheet, TextInput, Text, View, TouchableOpacity, KeyboardAvoidingView } from 'react-native';
 import { auth } from "../firebase";
-import { createUserWithEmailAndPassword, onAuthStateChanged, signInWithEmailAndPassword } from "@firebase/auth";
+import { createUserWithEmailAndPassword, onAuthStateChanged, signInWithEmailAndPassword } from "firebase/auth";
 
 
 const LoginScreen = ({navigation}) => {
@@ -40,7 +39,7 @@ const LoginScreen = ({navigation}) => {
 
 
     return (
-      <KeyboardAvoidingView behavior="padding" style={styles.container}>
+      <View behavior="padding" style={styles.container}>
           <View style={styles.inputWrapper}>
               <TextInput 
                   style={styles.loginInput} 
@@ -73,7 +72,7 @@ const LoginScreen = ({navigation}) => {
               </TouchableOpacity>
           </View>
 
-      </KeyboardAvoidingView>
+      </View>
     )
 }
 
@@ -88,6 +87,8 @@ const styles = StyleSheet.create({
     width: "80%"
   },
   loginInput: {
+    padding: 15,
+    borderWidth: 1,
     margin: 5,
     borderRadius: 20,
   },

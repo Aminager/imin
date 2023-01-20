@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { StatusBar } from 'expo-status-bar';
 import { Text, KeyboardAvoidingView, StyleSheet, TextInput, View, TouchableOpacity} from 'react-native';
-import { SafeAreaView } from "react-native-safe-area-context";
 import Icon from 'react-native-vector-icons/FontAwesome5';
 import BottomNavBar from "../components/BottomNavBar";
+import {auth, db} from "../firebase";
+import {collection, addDoc} from "firebase/firestore";
 
 
 
@@ -20,17 +21,35 @@ const NewBetScreen = ({navigation}) => {
     return true;
   }
 
-  function submitBet() {
+  function resetForm() {
+    onChangeText("");
+    onChangeAmount("");
+  }
+
+  
+  async function submitBet() {
+    
     if (formFilled()) {
-      alert("Bet added");
+      try {
+        const docRef = await addDoc(collection(db, "bets"), {
+          amount: parseInt(amount),
+          creator: auth.currentUser.email,
+          description: text
+        });
+        console.log("Document written with ID: ", docRef.id);
+        resetForm();
+        
+      } catch (e) {
+        console.error("Error adding doc: ", e);
+      }
     } else {
       alert("Please enter form correctly");
     }
   }
 
   return(
-    <SafeAreaView style={styles.newBetWrapper}>
-      <KeyboardAvoidingView style={styles.inputWrapper}>
+    <View style={styles.newBetWrapper}>
+      <View style={styles.inputWrapper}>
         <Text style={styles.titleText}>Create new bet</Text>
         
         <Text style={styles.inputTitle}>Bet description</Text>
@@ -53,10 +72,10 @@ const NewBetScreen = ({navigation}) => {
           onPress={() => submitBet()}>
           <Icon name="plus" style={styles.submitButton}></Icon>
         </TouchableOpacity>
-      </KeyboardAvoidingView>
+      </View>
 
       <BottomNavBar navigation={navigation}/>
-    </SafeAreaView>
+    </View>
   )
 }
 

@@ -17,10 +17,14 @@ const Bet = (props) => {
                 </Image>
                 
             </TouchableOpacity>
-
-            <Text style={styles.itemText}>{props.text}</Text>
-            
         </View>
+
+        <View style={styles.texts}>
+            <Text style={styles.creator}>{props.creator}</Text>
+            <Text style={styles.itemText}>{props.text}</Text>
+        </View>
+
+            
 
         <View style={styles.itemRight}>
             <View style={styles.amount}>
@@ -42,21 +46,21 @@ const Bet = (props) => {
 
 const styles = StyleSheet.create({
     item: {
+        flex: 1,
         backgroundColor: '#F7E3BE',
-        padding: "4.5%",
-        justifyContent: 'space-between',
+        padding: "4%",
         marginTop: "2%",
         marginBottom: "2%",
         borderRadius: 20,
         flexDirection: 'row',
-        alignItems: 'center',
-
     },
     itemLeft: {
         flexDirection: 'row',
+        justifyContent: 'flex-start'
     },
     itemRight: {
         flexDirection: 'row',
+        alignItems: 'center'
     },
     imageOpacity : {
         borderRadius: 50,
@@ -68,10 +72,17 @@ const styles = StyleSheet.create({
         width: 48,
         borderRadius: 50,
     },
+    texts: {
+        paddingHorizontal: "6%",
+        flexGrow: 1,
+        flexShrink: 1
+    },
+    creator: {
+        fontStyle: "italic"
+    },
     itemText: {
-        marginLeft: '13%',
+        flex: 1,
         fontWeight: 'bold',
-        maxWidth: '60%'
     },
     acceptOpacity: {
     
