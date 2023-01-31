@@ -9,10 +9,8 @@ import {collection, addDoc} from "firebase/firestore";
 
 
 const NewBetScreen = ({navigation}) => {
-
   const [text, onChangeText] = useState("");
   const [amount, onChangeAmount] = useState("");
-  const [submit, setSubmit] = useState(false);
 
   function formFilled() {
     let amountInt = parseInt(amount);
@@ -25,7 +23,6 @@ const NewBetScreen = ({navigation}) => {
     onChangeText("");
     onChangeAmount("");
   }
-
   
   async function submitBet() {
     
@@ -73,8 +70,6 @@ const NewBetScreen = ({navigation}) => {
           <Icon name="plus" style={styles.submitButton}></Icon>
         </TouchableOpacity>
       </View>
-
-      <BottomNavBar navigation={navigation}/>
     </View>
   )
 }

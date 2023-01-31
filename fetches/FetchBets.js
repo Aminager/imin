@@ -24,23 +24,4 @@ export const getBets = () => {
     }, []);
 
     return bets;
-
-    /*try {
-        const bets = [];
-        const colSnap = await getDocs();
-        colSnap.forEach((doc) => {
-            const bet = {
-                "text": doc.data().description,
-                "amount": doc.data().amount,
-                "creator": doc.data().creator
-            };
-            bets.push(bet);
-            //console.log(doc.id, " => ", doc.data());
-        });
-        console.log("Before: ", bets);
-        return bets;
-    } catch (e) {
-        console.log(e)
-        return [];
-    }*/
 }
