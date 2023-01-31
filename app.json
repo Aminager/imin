@@ -28,6 +28,12 @@
     },
     "web": {
       "favicon": "./assets/favicon.png"
-    }
+    },
+    "extra": {
+      "eas": {
+        "projectId": "1936233e-bc72-48cd-862f-e072ff72f7aa"
+      }
+    },
+    "owner": "aminager"
   }
 }
