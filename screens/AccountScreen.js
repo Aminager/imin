@@ -13,16 +13,14 @@ const AccountScreen = ({navigation}) => {
     })
     .catch(error => alert(error.message))
   }
-  
+
   return(
-    
       <View style={styles.container}>
           <View style={styles.profileInfoWrapper}>
             <TouchableOpacity style={styles.profileInfoWrapperOpacity}>
-              <Image 
+              <Image
                 style={styles.profileInfoImage}
-                source={require('../assets/amin.png')}>
-              </Image>
+                source={require('../assets/amin.png')} />
             </TouchableOpacity>
             <Text style={styles.profileInfoText}>test</Text>
           </View>
@@ -36,7 +34,6 @@ const AccountScreen = ({navigation}) => {
             </TouchableOpacity>
           </View>
       </View>
-      
   )
 }
 

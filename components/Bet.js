@@ -6,16 +6,13 @@ const Bet = (props) => {
 
     return (
     <View style={styles.item}>
-
         <View style={styles.itemLeft}>
-            <TouchableOpacity 
+            <TouchableOpacity
                 style={styles.imageOpacity}
                 onPress={() => alert("pic pressed")}>
-                <Image 
+                <Image
                     style={styles.betImage}
-                    source={require('../assets/amin.png')}>
-                </Image>
-                
+                    source={require('../assets/amin.png')} />
             </TouchableOpacity>
         </View>
 
@@ -34,12 +31,10 @@ const Bet = (props) => {
                 <TouchableOpacity
                     style={styles.acceptOpacity}
                     onPress={() => alert("bet accepted")}>
-                    <Icon name="check-circle" style={styles.acceptCheck}></Icon>
-                    
+                    <Icon name="check-circle" style={styles.acceptCheck} />
                 </TouchableOpacity>
             </View>
         </View>
-        
     </View>
     )
 }

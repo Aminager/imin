@@ -1,12 +1,8 @@
-import React, { useEffect, useState } from "react";
-import { StatusBar } from 'expo-status-bar';
-import { Text, KeyboardAvoidingView, StyleSheet, TextInput, View, TouchableOpacity} from 'react-native';
+import React, { useState } from "react";
+import { Keyboard, Text, StyleSheet, TextInput, View, TouchableOpacity, KeyboardAvoidingView} from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome5';
-import BottomNavBar from "../components/BottomNavBar";
 import {auth, db} from "../firebase";
 import {collection, addDoc} from "firebase/firestore";
-
-
 
 const NewBetScreen = ({navigation}) => {
   const [text, onChangeText] = useState("");
@@ -23,9 +19,8 @@ const NewBetScreen = ({navigation}) => {
     onChangeText("");
     onChangeAmount("");
   }
-  
+
   async function submitBet() {
-    
     if (formFilled()) {
       try {
         const docRef = await addDoc(collection(db, "bets"), {
@@ -34,8 +29,8 @@ const NewBetScreen = ({navigation}) => {
           description: text
         });
         console.log("Document written with ID: ", docRef.id);
+        Keyboard.dismiss();
         resetForm();
-        
       } catch (e) {
         console.error("Error adding doc: ", e);
       }
@@ -46,30 +41,29 @@ const NewBetScreen = ({navigation}) => {
 
   return(
     <View style={styles.newBetWrapper}>
-      <View style={styles.inputWrapper}>
+      <KeyboardAvoidingView style={styles.inputWrapper}>
         <Text style={styles.titleText}>Create new bet</Text>
-        
         <Text style={styles.inputTitle}>Bet description</Text>
         <TextInput 
           style={styles.textInput} 
           value={text}
           onChangeText={text => onChangeText(text)}
-          placeholder=" Enter bet description"></TextInput>
-        
+          placeholder=" Enter bet description" />
         <Text style={styles.inputTitle}>Amount</Text>
         <TextInput 
           style={styles.amountInput}
           value={amount}
           onChangeText={amount => onChangeAmount(amount)}
           keyboardType="numeric"
-          placeholder=" Enter your max bet amount"></TextInput>
+          placeholder=" Enter your max bet amount"
+          onSubmitEditing={() => submitBet()} />
         
         <TouchableOpacity 
           style={styles.submitButtonWrapper}
           onPress={() => submitBet()}>
           <Icon name="plus" style={styles.submitButton}></Icon>
         </TouchableOpacity>
-      </View>
+      </KeyboardAvoidingView>
     </View>
   )
 }

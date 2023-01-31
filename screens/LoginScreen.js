@@ -3,19 +3,18 @@ import { StyleSheet, TextInput, Text, View, TouchableOpacity, KeyboardAvoidingVi
 import { auth } from "../firebase";
 import { createUserWithEmailAndPassword, onAuthStateChanged, signInWithEmailAndPassword } from "firebase/auth";
 
-
 const LoginScreen = ({navigation}) => {
+
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
 
     const handleSignUp = () => {
-        createUserWithEmailAndPassword(auth, email, password)
-        .then(userCredentials => {
-            const user = userCredentials.user;
-            console.log(password);
-            console.log(user.email);
-        })
-        .catch(error => alert(error.message))
+      createUserWithEmailAndPassword(auth, email, password)
+      .then(userCredentials => {
+          const user = userCredentials.user;
+          console.log("User: ", user.email, ", pw: ", password);
+      })
+      .catch(error => alert(error.message))
     }
 
     const handleLogin = () => {
@@ -28,36 +27,30 @@ const LoginScreen = ({navigation}) => {
     }
 
     useEffect(() => {
-        const unsubscribe = onAuthStateChanged(auth, (user) => {
+      const unsubscribe = onAuthStateChanged(auth, (user) => {
           if (user) {
               navigation.replace("AppTabs");
           }
-        })
-        
-        return unsubscribe
-    }, [])
-
+      })
+      return unsubscribe
+    }, []);
 
     return (
       <View behavior="padding" style={styles.container}>
           <View style={styles.inputWrapper}>
-              <TextInput 
-                  style={styles.loginInput} 
+              <TextInput
+                  style={styles.loginInput}
                   placeholder="Email"
                   value = {email}
                   onChangeText={text => (setEmail(text))}
-                  >
-
-              </TextInput>
+                  />
               <TextInput 
                   style={styles.loginInput} 
                   secureTextEntry={true} 
                   placeholder="Password"
                   value = {password}
                   onChangeText={text => (setPassword(text))}
-                  >
-
-              </TextInput>
+                  />
           </View>
           <View style={styles.buttonWrapper}>
               <TouchableOpacity
@@ -71,7 +64,6 @@ const LoginScreen = ({navigation}) => {
                   <Text style={styles.buttonOutlineText}>Create account</Text>
               </TouchableOpacity>
           </View>
-
       </View>
     )
 }

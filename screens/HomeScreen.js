@@ -1,8 +1,8 @@
-import React, {useEffect, useState, useCallback} from "react";
+import React, {useState, useCallback} from "react";
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View, ScrollView, RefreshControl} from 'react-native';
 import Bet from '../components/Bet';
-import {getBets, updateBets} from "../fetches/FetchBets";
+import {getBets} from "../fetches/FetchBets";
 
 const HomeScreen = ({navigation}) => {
   const [refreshing, setRefreshing] = useState(false);
@@ -18,7 +18,6 @@ const HomeScreen = ({navigation}) => {
       } catch (e) {
         console.error(e);
       }
-      //setRefreshing(false);
     }, 2000)
   }, []);
 
