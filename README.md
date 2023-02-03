@@ -14,6 +14,8 @@ Run with ```npm start```
 
 
 ## Preview
+![demo](./images/demo.gif)
+
 ### Login Page
 ![Login](./images/login.png)
 
