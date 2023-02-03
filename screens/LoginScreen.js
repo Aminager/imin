@@ -37,6 +37,9 @@ const LoginScreen = ({navigation}) => {
 
     return (
       <View behavior="padding" style={styles.container}>
+        <View style={styles.loginHeaderWrapper}>
+          <Text style={styles.loginHeaderText}>I'm in!</Text>
+        </View>
           <View style={styles.inputWrapper}>
               <TextInput
                   style={styles.loginInput}
@@ -74,6 +77,13 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff',
     justifyContent: 'center',
     alignItems: 'center',
+  },
+  loginHeaderWrapper: {
+    paddingBottom: "20%"
+  },
+  loginHeaderText: {
+    fontSize: 24,
+    fontWeight: "bold"
   },
   inputWrapper: {
     width: "80%"

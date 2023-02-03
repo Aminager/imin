@@ -13,3 +13,16 @@ Clone the repo with ```git clone```
 Run with ```npm start```
 
 
+## Preview
+### Login Page
+![Login](./images/login.png)
+
+
+### Home Page
+![Home](./images/home.png)
+
+### New Bet Page
+![NewBet](./images/NewBet.png)
+
+### Account page
+![Account](./images/account.png)

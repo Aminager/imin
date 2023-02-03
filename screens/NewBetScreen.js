@@ -39,8 +39,8 @@ const NewBetScreen = ({navigation}) => {
     }
   }
 
-  return(
-    <View style={styles.newBetWrapper}>
+  return( //Fix keyboard dismiss on press
+    <View style={styles.newBetWrapper} onPress={() => Keyboard.dismiss()}>
       <KeyboardAvoidingView style={styles.inputWrapper}>
         <Text style={styles.titleText}>Create new bet</Text>
         <Text style={styles.inputTitle}>Bet description</Text>

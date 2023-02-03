@@ -24,6 +24,7 @@ const HomeScreen = ({navigation}) => {
   return (
   <View style={styles.container}>
       <ScrollView
+        overScrollMode="always"
         style={styles.sectionWrapper}
         refreshControl={
           <RefreshControl refreshing={refreshing} onRefresh={onRefresh} />

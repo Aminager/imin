@@ -12,7 +12,7 @@ const Bet = (props) => {
                 onPress={() => alert("pic pressed")}>
                 <Image
                     style={styles.betImage}
-                    source={require('../assets/amin.png')} />
+                    source={props.creator == "Amin" ? require('../assets/amin.png') : require('../assets/vera.jpg')} />
             </TouchableOpacity>
         </View>
 
